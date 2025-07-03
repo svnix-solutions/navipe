@@ -259,11 +259,11 @@ The platform uses Windmill for:
 
 ## License
 
-[Your License Here]
+This project is licensed under the GNU General Public License v3.0. See the LICENSE file for details.
 
 ## Support
 
 For issues and questions:
-- GitHub Issues: [repository-issues-url]
+- GitHub Issues: [https://github.com/svnix-solutions/routepay/issues]
 - Documentation: See `/docs` folder
-- Email: support@routepay.com
+- Email: contact@svnix.solutions
