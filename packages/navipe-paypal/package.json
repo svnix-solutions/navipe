@@ -1,7 +1,7 @@
 {
-  "name": "@routepay/stripe",
+  "name": "@navipe/paypal",
   "version": "1.0.0",
-  "description": "Stripe payment gateway integration for RoutePay",
+  "description": "PayPal payment gateway integration for NaviPe",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -9,12 +9,11 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["payment", "stripe", "gateway", "routepay"],
-  "author": "RoutePay",
+  "keywords": ["payment", "paypal", "gateway", "navipe"],
+  "author": "NaviPe",
   "license": "MIT",
   "dependencies": {
-    "@routepay/interfaces": "^1.0.0",
-    "stripe": "^14.0.0"
+    "@navipe/interfaces": "^1.0.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",

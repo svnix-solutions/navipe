@@ -10,7 +10,7 @@ import {
   WebhookEvent,
   GatewayConfig,
   StandardErrorCodes
-} from "@routepay/interfaces";
+} from "@navipe/interfaces";
 
 export class PayPalGateway extends BasePaymentGateway {
   getGatewayCode(): string {
@@ -50,7 +50,7 @@ export class PayPalGateway extends BasePaymentGateway {
           paypal: {
             experience_context: {
               payment_method_preference: 'IMMEDIATE_PAYMENT_REQUIRED',
-              brand_name: 'RoutePay',
+              brand_name: 'NaviPe',
               locale: 'en-US',
               landing_page: 'LOGIN',
               user_action: 'PAY_NOW'

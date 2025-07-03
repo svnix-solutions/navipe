@@ -1,6 +1,6 @@
 // Payment Processing Workflow
-import { gatewayFactory } from '@routepay/factory';
-import { PaymentRequest, GatewayConfig } from '@routepay/interfaces';
+import { gatewayFactory } from '@navipe/factory';
+import { PaymentRequest, GatewayConfig } from '@navipe/interfaces';
 
 type TransactionInput = {
   transactionId: string;

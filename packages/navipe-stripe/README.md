@@ -1,18 +1,18 @@
-# @routepay/stripe
+# @navipe/stripe
 
-Stripe payment gateway integration for RoutePay.
+Stripe payment gateway integration for NaviPe.
 
 ## Installation
 
 ```bash
-npm install @routepay/stripe
+npm install @navipe/stripe
 ```
 
 ## Usage
 
 ```typescript
-import { StripeGateway } from '@routepay/stripe';
-import { PaymentRequest, GatewayConfig } from '@routepay/interfaces';
+import { StripeGateway } from '@navipe/stripe';
+import { PaymentRequest, GatewayConfig } from '@navipe/interfaces';
 
 const stripeGateway = new StripeGateway();
 

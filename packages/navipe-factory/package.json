@@ -1,7 +1,7 @@
 {
-  "name": "@routepay/factory",
+  "name": "@navipe/factory",
   "version": "1.0.0",
-  "description": "Payment gateway factory for RoutePay - manages and creates gateway instances",
+  "description": "Payment gateway factory for NaviPe - manages and creates gateway instances",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -9,25 +9,25 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["payment", "gateway", "factory", "routepay"],
-  "author": "RoutePay",
+  "keywords": ["payment", "gateway", "factory", "navipe"],
+  "author": "NaviPe",
   "license": "MIT",
   "dependencies": {
-    "@routepay/interfaces": "^1.0.0"
+    "@navipe/interfaces": "^1.0.0"
   },
   "peerDependencies": {
-    "@routepay/stripe": "^1.0.0",
-    "@routepay/razorpay": "^1.0.0",
-    "@routepay/paypal": "^1.0.0"
+    "@navipe/stripe": "^1.0.0",
+    "@navipe/razorpay": "^1.0.0",
+    "@navipe/paypal": "^1.0.0"
   },
   "peerDependenciesMeta": {
-    "@routepay/stripe": {
+    "@navipe/stripe": {
       "optional": true
     },
-    "@routepay/razorpay": {
+    "@navipe/razorpay": {
       "optional": true
     },
-    "@routepay/paypal": {
+    "@navipe/paypal": {
       "optional": true
     }
   },

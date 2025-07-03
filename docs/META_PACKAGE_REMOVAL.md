@@ -1,6 +1,6 @@
 # Meta Package Removal Summary
 
-This document explains why the `@routepay/all` meta package was removed and the benefits of using direct dependencies.
+This document explains why the `@navipe/all` meta package was removed and the benefits of using direct dependencies.
 
 ## 🎯 Why Remove the Meta Package?
 
@@ -8,10 +8,10 @@ This document explains why the `@routepay/all` meta package was removed and the 
 The meta package added an extra layer that didn't provide real value:
 ```bash
 # Before (with meta package)
-npm install @routepay/all
+npm install @navipe/all
 
 # After (direct dependencies) 
-npm install @routepay/interfaces @routepay/factory @routepay/stripe @routepay/razorpay @routepay/paypal
+npm install @navipe/interfaces @navipe/factory @navipe/stripe @navipe/razorpay @navipe/paypal
 ```
 
 ### 2. **Hidden Dependencies**
@@ -20,18 +20,18 @@ With the meta package, it wasn't clear which specific packages were being used:
 // Before - Hidden dependencies
 {
   "dependencies": {
-    "@routepay/all": "^1.0.0"
+    "@navipe/all": "^1.0.0"
   }
 }
 
 // After - Transparent dependencies
 {
   "dependencies": {
-    "@routepay/interfaces": "^1.0.0",
-    "@routepay/factory": "^1.0.0", 
-    "@routepay/stripe": "^1.0.0",
-    "@routepay/razorpay": "^1.0.0",
-    "@routepay/paypal": "^1.0.0"
+    "@navipe/interfaces": "^1.0.0",
+    "@navipe/factory": "^1.0.0", 
+    "@navipe/stripe": "^1.0.0",
+    "@navipe/razorpay": "^1.0.0",
+    "@navipe/paypal": "^1.0.0"
   }
 }
 ```
@@ -40,13 +40,13 @@ With the meta package, it wasn't clear which specific packages were being used:
 Direct dependencies allow for more granular control:
 ```bash
 # Can choose specific gateways
-npm install @routepay/interfaces @routepay/factory @routepay/stripe
+npm install @navipe/interfaces @navipe/factory @navipe/stripe
 
 # Can update individual packages independently
-npm update @routepay/stripe
+npm update @navipe/stripe
 
 # Can remove unused gateways easily
-npm uninstall @routepay/paypal
+npm uninstall @navipe/paypal
 ```
 
 ## ✅ Benefits of Direct Dependencies
@@ -104,26 +104,26 @@ packages/
 ### Complete Installation
 ```bash
 # Install all packages for full functionality
-npm install @routepay/interfaces @routepay/factory @routepay/stripe @routepay/razorpay @routepay/paypal
+npm install @navipe/interfaces @navipe/factory @navipe/stripe @navipe/razorpay @navipe/paypal
 ```
 
 ### Selective Installation
 ```bash
 # Only Stripe and Razorpay
-npm install @routepay/interfaces @routepay/factory @routepay/stripe @routepay/razorpay
+npm install @navipe/interfaces @navipe/factory @navipe/stripe @navipe/razorpay
 
 # Only Stripe (manual management)
-npm install @routepay/interfaces @routepay/stripe
+npm install @navipe/interfaces @navipe/stripe
 ```
 
 ### Code Usage (No Change)
 ```typescript
 // Factory approach still works the same
-import { gatewayFactory } from '@routepay/factory';
+import { gatewayFactory } from '@navipe/factory';
 const gateway = gatewayFactory.createGateway('stripe');
 
 // Direct approach still works the same
-import { StripeGateway } from '@routepay/stripe';
+import { StripeGateway } from '@navipe/stripe';
 const gateway = new StripeGateway();
 ```
 
@@ -133,11 +133,11 @@ const gateway = new StripeGateway();
 ```json
 {
   "dependencies": {
-    "@routepay/interfaces": "^1.0.0",
-    "@routepay/factory": "^1.0.0",
-    "@routepay/stripe": "^1.0.0", 
-    "@routepay/razorpay": "^1.0.0",
-    "@routepay/paypal": "^1.0.0"
+    "@navipe/interfaces": "^1.0.0",
+    "@navipe/factory": "^1.0.0",
+    "@navipe/stripe": "^1.0.0", 
+    "@navipe/razorpay": "^1.0.0",
+    "@navipe/paypal": "^1.0.0"
   }
 }
 ```
@@ -146,8 +146,8 @@ const gateway = new StripeGateway();
 ```json
 {
   "dependencies": {
-    "@routepay/interfaces": "^1.0.0",
-    "@routepay/stripe": "^1.0.0"
+    "@navipe/interfaces": "^1.0.0",
+    "@navipe/stripe": "^1.0.0"
   }
 }
 ```
@@ -155,13 +155,13 @@ const gateway = new StripeGateway();
 ### 3. **Microservice Architecture**
 ```bash
 # Payment service
-npm install @routepay/interfaces @routepay/factory @routepay/stripe
+npm install @navipe/interfaces @navipe/factory @navipe/stripe
 
 # Refund service  
-npm install @routepay/interfaces @routepay/stripe @routepay/razorpay
+npm install @navipe/interfaces @navipe/stripe @navipe/razorpay
 
 # Webhook service
-npm install @routepay/interfaces @routepay/stripe @routepay/razorpay @routepay/paypal
+npm install @navipe/interfaces @navipe/stripe @navipe/razorpay @navipe/paypal
 ```
 
 ## 🚀 Deployment Benefits
@@ -173,18 +173,18 @@ FROM node:18-alpine
 WORKDIR /app
 
 # For Stripe-only service
-RUN npm install @routepay/interfaces @routepay/stripe
+RUN npm install @navipe/interfaces @navipe/stripe
 # Results in smaller image
 
 # For multi-gateway service
-RUN npm install @routepay/interfaces @routepay/factory @routepay/stripe @routepay/razorpay
+RUN npm install @navipe/interfaces @navipe/factory @navipe/stripe @navipe/razorpay
 # Still explicit about what's included
 ```
 
 ### Serverless Functions
 ```bash
 # Lambda function only needs specific gateway
-npm install @routepay/interfaces @routepay/stripe
+npm install @navipe/interfaces @navipe/stripe
 # Faster cold starts, smaller bundles
 ```
 

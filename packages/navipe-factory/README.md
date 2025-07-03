@@ -1,11 +1,11 @@
-# @routepay/factory
+# @navipe/factory
 
-Payment gateway factory for RoutePay - manages and creates gateway instances.
+Payment gateway factory for NaviPe - manages and creates gateway instances.
 
 ## Installation
 
 ```bash
-npm install @routepay/factory
+npm install @navipe/factory
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install @routepay/factory
 ### Basic Usage
 
 ```typescript
-import { gatewayFactory } from '@routepay/factory';
+import { gatewayFactory } from '@navipe/factory';
 
 // The factory automatically detects available gateway packages
 const supportedGateways = gatewayFactory.getSupportedGateways();
@@ -29,7 +29,7 @@ if (stripeGateway) {
 ### Custom Factory
 
 ```typescript
-import { PaymentGatewayFactoryImpl } from '@routepay/factory';
+import { PaymentGatewayFactoryImpl } from '@navipe/factory';
 import { MyCustomGateway } from './my-custom-gateway';
 
 const factory = new PaymentGatewayFactoryImpl();
@@ -54,9 +54,9 @@ const customGateway = factory.createGateway('custom');
 
 The factory automatically detects and loads these gateway packages if installed:
 
-- **@routepay/stripe** - Stripe payment gateway
-- **@routepay/razorpay** - Razorpay payment gateway  
-- **@routepay/paypal** - PayPal payment gateway
+- **@navipe/stripe** - Stripe payment gateway
+- **@navipe/razorpay** - Razorpay payment gateway  
+- **@navipe/paypal** - PayPal payment gateway
 
 ## Installation with Gateways
 
@@ -64,13 +64,13 @@ To use specific gateways, install them alongside the factory:
 
 ```bash
 # Install factory with Stripe gateway
-npm install @routepay/factory @routepay/stripe
+npm install @navipe/factory @navipe/stripe
 
 # Install factory with multiple gateways
-npm install @routepay/factory @routepay/stripe @routepay/razorpay @routepay/paypal
+npm install @navipe/factory @navipe/stripe @navipe/razorpay @navipe/paypal
 
 # Install all packages
-npm install @routepay/factory @routepay/stripe @routepay/razorpay @routepay/paypal
+npm install @navipe/factory @navipe/stripe @navipe/razorpay @navipe/paypal
 ```
 
 ## API Reference
@@ -100,7 +100,7 @@ npm install @routepay/factory @routepay/stripe @routepay/razorpay @routepay/payp
 A pre-configured singleton instance is available:
 
 ```typescript
-import { gatewayFactory } from '@routepay/factory';
+import { gatewayFactory } from '@navipe/factory';
 
 // Use the singleton directly
 const gateway = gatewayFactory.createGateway('stripe');
@@ -111,13 +111,13 @@ const gateway = gatewayFactory.createGateway('stripe');
 The factory gracefully handles missing dependencies:
 
 ```typescript
-import { gatewayFactory } from '@routepay/factory';
+import { gatewayFactory } from '@navipe/factory';
 
-// This will return null if @routepay/stripe is not installed
+// This will return null if @navipe/stripe is not installed
 const stripeGateway = gatewayFactory.createGateway('stripe');
 
 if (!stripeGateway) {
-  console.log('Stripe gateway not available. Install @routepay/stripe');
+  console.log('Stripe gateway not available. Install @navipe/stripe');
 } else {
   // Use the gateway
   const result = await stripeGateway.processPayment(request, config);

@@ -1,6 +1,6 @@
-// RoutePay Gateway Integration - Using NPM Packages
+// NaviPe Gateway Integration - Using NPM Packages
 
-import { gatewayFactory } from '@routepay/factory';
+import { gatewayFactory } from '@navipe/factory';
 import { 
   PaymentRequest, 
   PaymentResponse, 
@@ -9,7 +9,7 @@ import {
   GatewayConfig,
   WebhookVerificationRequest,
   WebhookEvent
-} from '@routepay/interfaces';
+} from '@navipe/interfaces';
 
 /**
  * Process a payment using the specified gateway

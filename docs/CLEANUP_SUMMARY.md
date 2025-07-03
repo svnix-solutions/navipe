@@ -6,14 +6,14 @@ This document outlines the cleanup performed after migrating to the modular npm 
 
 ### Old Monolithic Gateway Files
 - **`windmill/scripts/payment/gateways/`** - Entire directory removed
-  - `stripe-gateway.ts` - Replaced by `@routepay/stripe`
-  - `razorpay-gateway.ts` - Replaced by `@routepay/razorpay`
-  - `paypal-gateway.ts` - Replaced by `@routepay/paypal`
+  - `stripe-gateway.ts` - Replaced by `@navipe/stripe`
+  - `razorpay-gateway.ts` - Replaced by `@navipe/razorpay`
+  - `paypal-gateway.ts` - Replaced by `@navipe/paypal`
   - `base-gateway.ts` - Now included in each gateway package
 
 ### Old Core Files  
-- **`windmill/scripts/payment/interfaces.ts`** - Replaced by `@routepay/interfaces`
-- **`windmill/scripts/payment/gateway-factory.ts`** - Replaced by `@routepay/factory`
+- **`windmill/scripts/payment/interfaces.ts`** - Replaced by `@navipe/interfaces`
+- **`windmill/scripts/payment/gateway-factory.ts`** - Replaced by `@navipe/factory`
 
 ### Dependencies
 - **`windmill/scripts/payment/node_modules/`** - Removed old dependencies
@@ -30,8 +30,8 @@ This document outlines the cleanup performed after migrating to the modular npm 
   import { PaymentRequest, GatewayConfig } from "./interfaces.ts";
   
   // NEW:
-  import { gatewayFactory } from '@routepay/factory';
-  import { PaymentRequest, GatewayConfig } from '@routepay/interfaces';
+  import { gatewayFactory } from '@navipe/factory';
+  import { PaymentRequest, GatewayConfig } from '@navipe/interfaces';
   ```
 
 - **`windmill/scripts/payment/package.json`**
@@ -48,11 +48,11 @@ This document outlines the cleanup performed after migrating to the modular npm 
   // NEW:
   {
     "dependencies": {
-      "@routepay/interfaces": "^1.0.0",
-      "@routepay/factory": "^1.0.0",
-      "@routepay/stripe": "^1.0.0",
-      "@routepay/razorpay": "^1.0.0",
-      "@routepay/paypal": "^1.0.0"
+      "@navipe/interfaces": "^1.0.0",
+      "@navipe/factory": "^1.0.0",
+      "@navipe/stripe": "^1.0.0",
+      "@navipe/razorpay": "^1.0.0",
+      "@navipe/paypal": "^1.0.0"
     }
   }
   ```
@@ -78,8 +78,8 @@ windmill/scripts/payment/
 ### After Cleanup
 ```
 windmill/scripts/payment/
-├── gateway-integration.ts    # ✅ Uses @routepay packages
-├── process.ts               # ✅ Uses @routepay packages  
+├── gateway-integration.ts    # ✅ Uses @navipe packages
+├── process.ts               # ✅ Uses @navipe packages  
 ├── routing-engine.ts        # ✅ Gateway-agnostic
 └── package.json             # ✅ Clean dependencies
 ```
@@ -92,7 +92,7 @@ windmill/scripts/payment/
 - Single source of truth for gateway implementations
 
 ### 2. **Cleaner Dependencies**
-- Direct RoutePay package dependencies instead of multiple SDKs
+- Direct NaviPe package dependencies instead of multiple SDKs
 - Automatic dependency management through npm packages
 - No more manual SDK version management
 - Transparent dependency tree (no hidden meta packages)

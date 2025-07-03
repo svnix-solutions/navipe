@@ -1,10 +1,10 @@
 # Claude Code Instructions
 
-This document provides context and instructions for Claude Code when working on the RoutePay payment router platform.
+This document provides context and instructions for Claude Code when working on the NaviPe payment router platform.
 
 ## Project Overview
 
-RoutePay is a payment routing platform built with:
+NaviPe is a payment routing platform built with:
 - **PostgreSQL**: Database with separate databases for app data, Hasura metadata, and Windmill
 - **Hasura GraphQL**: API layer with migrations-based schema management
 - **Windmill**: Workflow automation for payment processing

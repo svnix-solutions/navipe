@@ -10,7 +10,7 @@ import {
   WebhookEvent,
   GatewayConfig,
   StandardErrorCodes
-} from "@routepay/interfaces";
+} from "@navipe/interfaces";
 
 export abstract class BasePaymentGateway implements PaymentGateway {
   // Abstract methods that must be implemented by each gateway

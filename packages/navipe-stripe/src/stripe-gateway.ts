@@ -11,7 +11,7 @@ import {
   WebhookEvent,
   GatewayConfig,
   StandardErrorCodes
-} from "@routepay/interfaces";
+} from "@navipe/interfaces";
 
 export class StripeGateway extends BasePaymentGateway {
   getGatewayCode(): string {

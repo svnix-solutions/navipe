@@ -12,7 +12,7 @@ import {
   WebhookEvent,
   GatewayConfig,
   StandardErrorCodes
-} from "@routepay/interfaces";
+} from "@navipe/interfaces";
 
 export class RazorpayGateway extends BasePaymentGateway {
   getGatewayCode(): string {

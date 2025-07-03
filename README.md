@@ -1,6 +1,6 @@
-# RoutePay - Payment Router Platform
+# NaviPe - Payment Router Platform
 
-A sophisticated payment routing platform built with Hasura GraphQL, Windmill workflows, and PostgreSQL. RoutePay intelligently routes payment transactions through multiple payment gateways based on configurable rules, optimizing for success rates, costs, and performance.
+A sophisticated payment routing platform built with Hasura GraphQL, Windmill workflows, and PostgreSQL. NaviPe intelligently routes payment transactions through multiple payment gateways based on configurable rules, optimizing for success rates, costs, and performance.
 
 ## Features
 
@@ -21,7 +21,7 @@ A sophisticated payment routing platform built with Hasura GraphQL, Windmill wor
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Merchant  │────▶│   RoutePay  │────▶│   Payment   │
+│   Merchant  │────▶│   NaviPe  │────▶│   Payment   │
 │     API     │     │   Platform  │     │   Gateways  │
 └─────────────┘     └─────────────┘     └─────────────┘
                            │

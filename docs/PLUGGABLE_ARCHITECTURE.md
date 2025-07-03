@@ -1,6 +1,6 @@
 # Pluggable Payment Gateway Architecture
 
-This document explains the pluggable architecture for payment gateways in RoutePay, making it easy to add new payment integrations without modifying core logic.
+This document explains the pluggable architecture for payment gateways in NaviPe, making it easy to add new payment integrations without modifying core logic.
 
 ## Architecture Overview
 
@@ -384,4 +384,4 @@ mapErrorCode(gatewayErrorCode: string): string {
 - Alert on anomalies
 - Dashboard for gateway health
 
-This pluggable architecture makes RoutePay highly extensible while maintaining code quality and reliability!
+This pluggable architecture makes NaviPe highly extensible while maintaining code quality and reliability!

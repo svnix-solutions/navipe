@@ -1,7 +1,7 @@
 # Payment Router Platform Database Documentation
 
 ## Overview
-This document describes the database schema for the RoutePay payment routing platform. The schema is managed through Hasura CLI migrations located in `hasura/migrations/default/`.
+This document describes the database schema for the NaviPe payment routing platform. The schema is managed through Hasura CLI migrations located in `hasura/migrations/default/`.
 
 ## Core Entities
 

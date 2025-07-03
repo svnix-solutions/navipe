@@ -1,12 +1,12 @@
 # Windmill Resources Configuration
 
-This document explains how to configure resources in Windmill for the RoutePay platform.
+This document explains how to configure resources in Windmill for the NaviPe platform.
 
 ## What are Windmill Resources?
 
 Windmill Resources are a secure way to store and manage credentials, configurations, and connections to external services. Instead of hardcoding sensitive information in scripts, you define resources that can be reused across multiple workflows.
 
-## Required Resources for RoutePay
+## Required Resources for NaviPe
 
 ### Hasura Resource (Only Resource Needed!)
 

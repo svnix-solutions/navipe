@@ -1,18 +1,18 @@
-# @routepay/paypal
+# @navipe/paypal
 
-PayPal payment gateway integration for RoutePay.
+PayPal payment gateway integration for NaviPe.
 
 ## Installation
 
 ```bash
-npm install @routepay/paypal
+npm install @navipe/paypal
 ```
 
 ## Usage
 
 ```typescript
-import { PayPalGateway } from '@routepay/paypal';
-import { PaymentRequest, GatewayConfig } from '@routepay/interfaces';
+import { PayPalGateway } from '@navipe/paypal';
+import { PaymentRequest, GatewayConfig } from '@navipe/interfaces';
 
 const paypalGateway = new PayPalGateway();
 

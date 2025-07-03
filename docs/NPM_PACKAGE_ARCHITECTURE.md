@@ -1,11 +1,11 @@
-# RoutePay NPM Package Architecture
+# NaviPe NPM Package Architecture
 
-This document outlines the modular npm package architecture for RoutePay payment gateway integrations.
+This document outlines the modular npm package architecture for NaviPe payment gateway integrations.
 
 ## 📦 Package Structure
 
 ```
-@routepay/
+@navipe/
 ├── interfaces          # Core interfaces and types
 ├── factory            # Gateway factory and management
 ├── stripe             # Stripe payment gateway
@@ -39,7 +39,7 @@ This document outlines the modular npm package architecture for RoutePay payment
 
 ### Core Packages
 
-#### @routepay/interfaces
+#### @navipe/interfaces
 **Purpose**: Core interfaces, types, and enums  
 **Dependencies**: None  
 **Size**: ~5KB  
@@ -50,46 +50,46 @@ export interface PaymentRequest { /* ... */ }
 export enum StandardErrorCodes { /* ... */ }
 ```
 
-#### @routepay/factory  
+#### @navipe/factory  
 **Purpose**: Gateway factory and management  
-**Dependencies**: `@routepay/interfaces`  
+**Dependencies**: `@navipe/interfaces`  
 **Peer Dependencies**: Gateway packages (optional)  
 **Size**: ~8KB  
 
 ```typescript
-import { gatewayFactory } from '@routepay/factory';
+import { gatewayFactory } from '@navipe/factory';
 const gateway = gatewayFactory.createGateway('stripe');
 ```
 
 ### Gateway Packages
 
-#### @routepay/stripe
+#### @navipe/stripe
 **Purpose**: Stripe payment gateway integration  
-**Dependencies**: `@routepay/interfaces`, `stripe`  
+**Dependencies**: `@navipe/interfaces`, `stripe`  
 **Size**: ~25KB + Stripe SDK  
 
 ```typescript
-import { StripeGateway } from '@routepay/stripe';
+import { StripeGateway } from '@navipe/stripe';
 const gateway = new StripeGateway();
 ```
 
-#### @routepay/razorpay
+#### @navipe/razorpay
 **Purpose**: Razorpay payment gateway integration  
-**Dependencies**: `@routepay/interfaces`, `razorpay`  
+**Dependencies**: `@navipe/interfaces`, `razorpay`  
 **Size**: ~20KB + Razorpay SDK  
 
 ```typescript
-import { RazorpayGateway } from '@routepay/razorpay';
+import { RazorpayGateway } from '@navipe/razorpay';
 const gateway = new RazorpayGateway();
 ```
 
-#### @routepay/paypal
+#### @navipe/paypal
 **Purpose**: PayPal payment gateway integration  
-**Dependencies**: `@routepay/interfaces`  
+**Dependencies**: `@navipe/interfaces`  
 **Size**: ~22KB  
 
 ```typescript
-import { PayPalGateway } from '@routepay/paypal';
+import { PayPalGateway } from '@navipe/paypal';
 const gateway = new PayPalGateway();
 ```
 
@@ -98,19 +98,19 @@ const gateway = new PayPalGateway();
 
 ### Option 1: Complete Suite (Recommended)
 ```bash
-npm install @routepay/interfaces @routepay/factory @routepay/stripe @routepay/razorpay @routepay/paypal
+npm install @navipe/interfaces @navipe/factory @navipe/stripe @navipe/razorpay @navipe/paypal
 ```
 **Use Case**: You need multiple gateways or want all options available with the factory pattern
 
 ### Option 2: Specific Gateways
 ```bash
-npm install @routepay/interfaces @routepay/factory @routepay/stripe
+npm install @navipe/interfaces @navipe/factory @navipe/stripe
 ```
 **Use Case**: You only need specific gateways
 
 ### Option 3: Individual Gateway
 ```bash
-npm install @routepay/interfaces @routepay/stripe
+npm install @navipe/interfaces @navipe/stripe
 ```
 **Use Case**: You only need one gateway and want to manage it manually
 
@@ -119,8 +119,8 @@ npm install @routepay/interfaces @routepay/stripe
 ### Using the Factory (Recommended)
 
 ```typescript
-import { gatewayFactory } from '@routepay/factory';
-import { PaymentRequest, GatewayConfig } from '@routepay/interfaces';
+import { gatewayFactory } from '@navipe/factory';
+import { PaymentRequest, GatewayConfig } from '@navipe/interfaces';
 
 // Check available gateways (depends on installed packages)
 console.log(gatewayFactory.getSupportedGateways()); 
@@ -149,8 +149,8 @@ if (gateway) {
 ### Using Gateway Directly
 
 ```typescript
-import { StripeGateway } from '@routepay/stripe';
-import { PaymentRequest, GatewayConfig } from '@routepay/interfaces';
+import { StripeGateway } from '@navipe/stripe';
+import { PaymentRequest, GatewayConfig } from '@navipe/interfaces';
 
 const stripeGateway = new StripeGateway();
 
@@ -172,7 +172,7 @@ const result = await stripeGateway.processPayment(request, config);
 ### Custom Gateway Registration
 
 ```typescript
-import { gatewayFactory } from '@routepay/factory';
+import { gatewayFactory } from '@navipe/factory';
 import { MyCustomGateway } from './my-custom-gateway';
 
 // Register custom gateway
@@ -186,10 +186,10 @@ const customGateway = gatewayFactory.createGateway('custom');
 
 ### Package Development
 
-1. **Core Changes**: Update `@routepay/interfaces` first
+1. **Core Changes**: Update `@navipe/interfaces` first
 2. **Gateway Changes**: Update individual gateway packages
-3. **Factory Changes**: Update `@routepay/factory` for new features
-4. **Meta Package**: Update `@routepay/all` version dependencies
+3. **Factory Changes**: Update `@navipe/factory` for new features
+4. **Meta Package**: Update `@navipe/all` version dependencies
 
 ### Version Management
 
@@ -263,7 +263,7 @@ jobs:
 - No secrets in package code
 
 ### Access Control
-- Scoped packages under `@routepay` organization
+- Scoped packages under `@navipe` organization
 - Team-based npm publish permissions
 - Two-factor authentication required
 
@@ -307,7 +307,7 @@ RUN npm ci --only=production
 # Results in smaller image with only Stripe dependencies
 
 # For all gateways
-RUN npm install @routepay/all
+RUN npm install @navipe/all
 # Larger image but all gateways available
 ```
 
@@ -315,7 +315,7 @@ RUN npm install @routepay/all
 
 ```typescript
 // Lambda function with only Stripe
-import { StripeGateway } from '@routepay/stripe';
+import { StripeGateway } from '@navipe/stripe';
 
 export const handler = async (event) => {
   const gateway = new StripeGateway();
@@ -328,7 +328,7 @@ export const handler = async (event) => {
 ```bash
 # Only include credentials for installed gateways
 STRIPE_SECRET_KEY=sk_live_...
-# No need for RAZORPAY_KEY_ID if @routepay/razorpay not installed
+# No need for RAZORPAY_KEY_ID if @navipe/razorpay not installed
 ```
 
 This modular architecture provides maximum flexibility while maintaining code quality and developer experience!

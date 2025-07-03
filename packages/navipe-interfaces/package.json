@@ -1,7 +1,7 @@
 {
-  "name": "@routepay/interfaces",
+  "name": "@navipe/interfaces",
   "version": "1.0.0",
-  "description": "Core interfaces and types for RoutePay payment gateway integrations",
+  "description": "Core interfaces and types for NaviPe payment gateway integrations",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -10,7 +10,7 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": ["payment", "gateway", "interfaces", "typescript"],
-  "author": "RoutePay",
+  "author": "NaviPe",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^5.0.0"

@@ -1,11 +1,11 @@
-# @routepay/interfaces
+# @navipe/interfaces
 
-Core interfaces and types for RoutePay payment gateway integrations.
+Core interfaces and types for NaviPe payment gateway integrations.
 
 ## Installation
 
 ```bash
-npm install @routepay/interfaces
+npm install @navipe/interfaces
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ import {
   PaymentResponse,
   GatewayConfig,
   StandardErrorCodes
-} from '@routepay/interfaces';
+} from '@navipe/interfaces';
 
 // Implement a payment gateway
 class MyGateway implements PaymentGateway {

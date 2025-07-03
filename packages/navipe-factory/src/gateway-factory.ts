@@ -1,6 +1,6 @@
 // Payment Gateway Factory
 
-import { PaymentGateway, PaymentGatewayFactory } from "@routepay/interfaces";
+import { PaymentGateway, PaymentGatewayFactory } from "@navipe/interfaces";
 
 export class PaymentGatewayFactoryImpl implements PaymentGatewayFactory {
   private gateways: Map<string, () => PaymentGateway>;
@@ -13,9 +13,9 @@ export class PaymentGatewayFactoryImpl implements PaymentGatewayFactory {
 
   private initializeGateways(): void {
     // Try to load gateway modules
-    this.tryLoadGateway('stripe', '@routepay/stripe', 'StripeGateway');
-    this.tryLoadGateway('razorpay', '@routepay/razorpay', 'RazorpayGateway');
-    this.tryLoadGateway('paypal', '@routepay/paypal', 'PayPalGateway');
+    this.tryLoadGateway('stripe', '@navipe/stripe', 'StripeGateway');
+    this.tryLoadGateway('razorpay', '@navipe/razorpay', 'RazorpayGateway');
+    this.tryLoadGateway('paypal', '@navipe/paypal', 'PayPalGateway');
   }
 
   private tryLoadGateway(gatewayCode: string, moduleName: string, className: string): void {

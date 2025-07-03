@@ -1,14 +1,14 @@
 {
-  "name": "routepay-payment-scripts",
+  "name": "navipe-payment-scripts",
   "version": "1.0.0",
-  "description": "Payment gateway integrations for RoutePay",
+  "description": "Payment gateway integrations for NaviPe",
   "type": "module",
   "dependencies": {
-    "@routepay/interfaces": "^1.0.0",
-    "@routepay/factory": "^1.0.0",
-    "@routepay/stripe": "^1.0.0",
-    "@routepay/razorpay": "^1.0.0",
-    "@routepay/paypal": "^1.0.0"
+    "@navipe/interfaces": "^1.0.0",
+    "@navipe/factory": "^1.0.0",
+    "@navipe/stripe": "^1.0.0",
+    "@navipe/razorpay": "^1.0.0",
+    "@navipe/paypal": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0"

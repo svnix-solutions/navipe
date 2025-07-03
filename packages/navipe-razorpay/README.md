@@ -1,18 +1,18 @@
-# @routepay/razorpay
+# @navipe/razorpay
 
-Razorpay payment gateway integration for RoutePay.
+Razorpay payment gateway integration for NaviPe.
 
 ## Installation
 
 ```bash
-npm install @routepay/razorpay
+npm install @navipe/razorpay
 ```
 
 ## Usage
 
 ```typescript
-import { RazorpayGateway } from '@routepay/razorpay';
-import { PaymentRequest, GatewayConfig } from '@routepay/interfaces';
+import { RazorpayGateway } from '@navipe/razorpay';
+import { PaymentRequest, GatewayConfig } from '@navipe/interfaces';
 
 const razorpayGateway = new RazorpayGateway();
 

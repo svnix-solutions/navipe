@@ -1,7 +1,7 @@
 {
-  "name": "@routepay/paypal",
+  "name": "@navipe/razorpay",
   "version": "1.0.0",
-  "description": "PayPal payment gateway integration for RoutePay",
+  "description": "Razorpay payment gateway integration for NaviPe",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -9,11 +9,12 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["payment", "paypal", "gateway", "routepay"],
-  "author": "RoutePay",
+  "keywords": ["payment", "razorpay", "gateway", "navipe", "india"],
+  "author": "NaviPe",
   "license": "MIT",
   "dependencies": {
-    "@routepay/interfaces": "^1.0.0"
+    "@navipe/interfaces": "^1.0.0",
+    "razorpay": "^2.9.2"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
