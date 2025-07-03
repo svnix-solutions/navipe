@@ -1,0 +1,16 @@
+{
+  "name": "routepay-payment-scripts",
+  "version": "1.0.0",
+  "description": "Payment gateway integrations for RoutePay",
+  "type": "module",
+  "dependencies": {
+    "@routepay/interfaces": "^1.0.0",
+    "@routepay/factory": "^1.0.0",
+    "@routepay/stripe": "^1.0.0",
+    "@routepay/razorpay": "^1.0.0",
+    "@routepay/paypal": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}

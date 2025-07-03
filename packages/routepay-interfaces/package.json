@@ -1,0 +1,22 @@
+{
+  "name": "@routepay/interfaces",
+  "version": "1.0.0",
+  "description": "Core interfaces and types for RoutePay payment gateway integrations",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["payment", "gateway", "interfaces", "typescript"],
+  "author": "RoutePay",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@routepay/factory",
+  "version": "1.0.0",
+  "description": "Payment gateway factory for RoutePay - manages and creates gateway instances",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["payment", "gateway", "factory", "routepay"],
+  "author": "RoutePay",
+  "license": "MIT",
+  "dependencies": {
+    "@routepay/interfaces": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@routepay/stripe": "^1.0.0",
+    "@routepay/razorpay": "^1.0.0",
+    "@routepay/paypal": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@routepay/stripe": {
+      "optional": true
+    },
+    "@routepay/razorpay": {
+      "optional": true
+    },
+    "@routepay/paypal": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ]
+}

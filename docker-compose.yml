@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: routepay-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: routepay
+      POSTGRES_PASSWORD: routepay123
+      POSTGRES_DB: postgres  # Default database for initial connection
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init-databases.sql:/docker-entrypoint-initdb.d/00-init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U routepay"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  hasura:
+    image: hasura/graphql-engine:v2.36.0
+    container_name: routepay-hasura
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: always
+    environment:
+      # Hasura metadata stored in separate database
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://routepay:routepay123@postgres:5432/hasura_metadata
+      # Application data connection
+      HASURA_GRAPHQL_DATABASE_URL: postgres://routepay:routepay123@postgres:5432/routepay
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      HASURA_GRAPHQL_ADMIN_SECRET: myadminsecret
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
+
+  windmill:
+    image: ghcr.io/windmill-labs/windmill:main
+    container_name: routepay-windmill
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      # Windmill uses its own database
+      DATABASE_URL: postgres://routepay:routepay123@postgres:5432/windmill?sslmode=disable
+      MODE: standalone
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - windmill_data:/usr/src/app
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: routepay-pgadmin
+    restart: always
+    ports:
+      - "8090:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@routepay.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+volumes:
+  postgres_data:
+  windmill_data:
+  pgadmin_data:

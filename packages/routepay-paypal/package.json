@@ -1,0 +1,26 @@
+{
+  "name": "@routepay/paypal",
+  "version": "1.0.0",
+  "description": "PayPal payment gateway integration for RoutePay",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["payment", "paypal", "gateway", "routepay"],
+  "author": "RoutePay",
+  "license": "MIT",
+  "dependencies": {
+    "@routepay/interfaces": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ]
+}

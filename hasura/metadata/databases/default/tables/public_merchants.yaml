@@ -1,0 +1,40 @@
+table:
+  name: merchants
+  schema: public
+object_relationships:
+  - name: merchant_gateways
+    using:
+      foreign_key_constraint_on:
+        column: merchant_id
+        table:
+          name: merchant_gateways
+          schema: public
+  - name: routing_rules
+    using:
+      foreign_key_constraint_on:
+        column: merchant_id
+        table:
+          name: routing_rules
+          schema: public
+array_relationships:
+  - name: transactions
+    using:
+      foreign_key_constraint_on:
+        column: merchant_id
+        table:
+          name: transactions
+          schema: public
+select_permissions:
+  - role: merchant
+    permission:
+      columns: "*"
+      filter:
+        api_key:
+          _eq: X-Hasura-Api-Key
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - name
+        - merchant_code
+      filter: {}
